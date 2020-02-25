@@ -45,10 +45,10 @@ class Tail {
      *
      * @return void
      */
-    public function listen($queue_name, Closure $callback)
+    public function listen($queue_name, Closure $callback, $opts = null)
     {
         $listener = App::make('Mookofe\Tail\Listener');
-        $listener->listen($queue_name, null, $callback);
+        $listener->listen($queue_name, $opts, $callback);
     }
 
     /**
