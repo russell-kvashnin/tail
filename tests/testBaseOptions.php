@@ -72,5 +72,6 @@ class testBaseOptions extends \PHPUnit_Framework_TestCase
         //Asserts
         $this->assertInternalType('array', $options);
         $this->assertArrayHasKey('queue_name', $options);
+        $this->assertArrayHasKey('durable', $options);
     }
 }

@@ -16,7 +16,7 @@ class BaseOptions {
      *
      * @var array
      */
-    protected $allowedOptions = array('exchange', 'exchange_type', 'vhost', 'connection_name', 'queue_name', 'content_type');
+    protected $allowedOptions = array('exchange', 'exchange_type', 'vhost', 'connection_name', 'queue_name', 'content_type', 'durable');
 
     /**
      * Config repository dependency
@@ -68,6 +68,13 @@ class BaseOptions {
      * @var string
      */
     public $content_type;
+
+    /**
+     * Queue durability
+     *
+     * @var false
+     */
+    public $durable = false;
 
     /**
      * Constructor
@@ -152,6 +159,7 @@ class BaseOptions {
 
         //Queue specific options
         $connectionOptions['queue_name'] = $this->queue_name;
+        $connectionOptions['durable'] = $this->durable;
 
         return $connectionOptions;
     }

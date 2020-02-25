@@ -149,7 +149,7 @@ class Connection extends BaseOptions{
                 $additionalConnectionOptions
             );
             $this->channel = $this->AMQPConnection->channel();
-            $this->channel->queue_declare($this->queue_name, false, false, false, false);
+            $this->channel->queue_declare($this->queue_name, false, $this->durable, false, false);
             $this->channel->exchange_declare($this->exchange, $this->exchange_type, false, true, false);
             $this->channel->queue_bind($this->queue_name, $this->exchange);
         }
